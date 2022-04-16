@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How r u today</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+<body onload="initClock()">
+    <div>
+        <img src="Line 1.png" class="line1">
+    </div>
+
+    <div class="bottom">
+        <input type="text" id="text" placeholder="Type something..." class="input1">
+        <a><img src="Group 4.png" class="b1" id="b1"></a>
+    </div>
+
+    <div id="MessagePlace" class="MessagePlace"></div>
+
+    <div class="datetime">
+        <div class="date">
+            <span id="dayname">Jour</span>
+            <span id="month">Mois</span>
+            <span id="daynum">00</span>
+            <span id="year">Année</span>
+        </div>
+        <div class="time">
+            <span id="hour">00</span>
+            <span id="minutes">00</span>
+            <span id="seconds">00</span>
+            <span id="period">AM</span>
+        </div>
+
+    </div>
+
+    
+</body>
+<script src="script.js"></script>
+
+<script type="text/javascript">
+    const text = document.getElementById("text");
+    const b1 = document.getElementById("b1");
+    const MessagePlace = document.getElementById("MessagePlace");
+
+    b1.onclick = function () {
+        const key = text.value;
+        
+
+        console.log(key);
+
+        if (key) {
+            localStorage.setItem(key, 'user');
+            location.reload();
+        }
+    };
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+
+        MessagePlace.innerHTML += `${key} <br> <br>` ;
+    }
+</script>
+</html>
